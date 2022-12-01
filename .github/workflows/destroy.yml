@@ -4,7 +4,7 @@ on:
 
 jobs:
   terraform:
-    name: "Terraform"
+    name: "Destroy"
     runs-on: ubuntu-latest
     steps:
       - name: Setup Terraform
