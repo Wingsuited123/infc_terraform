@@ -10,9 +10,6 @@ terraform {
 
 provider "aws" {
     region  = "us-east-1"
-    access_key = "ASIASQJTATY7656EUCMS"
-    secret_key = "vde33AgIFVi68wthgy1TAQirndqbvF42gcQkpyCO"
-    token = "FwoGZXIvYXdzEPH//////////wEaDHMlP9MHdfx9OGDMmiLLAYmEHlEDoCnQexsR34ZNekrgXNRH5o8BMui+p9iKdz5T6KkhicL4FGB/Vyxlz3+oS8NckUsTv+5zaQQ3zvf3ow4+F33AEHf4MBQCL/7pvFwjRch/ceJPWuIolfVlTa+C37xEUe2GRdYTYMwgBm3C+WoSifplzke9gMgTAgEF4Llkk9pqouwggNKhCuQNmZI27GfJUoluQPmmmMkPKXTaC9WHaCigBEMONnfJcb4ld2DG9saYDUunTy6nbhwUwfnm+zN2zmT2PWaUQUd5KODWgZwGMi2N3zLsIwD2dWIUKzBreopek35P+oiagN5Os4FzJtPUmlX26LfIP0zhvNGL7xE="
 }
 
 resource "aws_vpc" "main" {
