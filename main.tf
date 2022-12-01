@@ -6,6 +6,14 @@ terraform {
     }
   }
    required_version = ">= 1.2.0"
+    
+   cloud {
+       organization = "group07"
+       
+       workspaces {
+           name = "infc_terraform"
+       }
+   }
 }
 
 provider "aws" {
