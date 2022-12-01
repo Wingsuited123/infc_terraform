@@ -20,7 +20,7 @@ jobs:
       - name: Terraform Format
         id: fmt
         run: terraform fmt -check
-      # Initializes Terraform backend as to not dospose of the state
+      # Initializes Terraform backend as to not dispose of the state
       - name: Terraform Init
         id: init
         run: terraform init
