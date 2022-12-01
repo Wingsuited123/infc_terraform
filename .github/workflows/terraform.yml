@@ -7,32 +7,32 @@ jobs:
     name: "Terraform"
     runs-on: ubuntu-latest
     steps:
+      # Checks out repository
       - name: Checkout
         uses: actions/checkout@v3
-
+      # Sets up Terraform
       - name: Setup Terraform
         uses: hashicorp/setup-terraform@v1
         with:
           # terraform_version: 0.13.0:
           cli_config_credentials_token: ${{ secrets.TF_API_TOKEN }}
-          
+      # Formats Terraform    
       - name: Terraform Format
         id: fmt
         run: terraform fmt -check
-
+      # Initializes Terraform backend as to not dospose of the state
       - name: Terraform Init
         id: init
         run: terraform init
-      
+      # Validate Terraform
       - name: Terraform Validate
         id: validate
         run: terraform validate -no-color
-
+      # Creates a Plan for the desired Terraform Configuration
       - name: Terraform Plan
         id: plan
         run: terraform plan -no-color -input=false
         continue-on-error: true
-
       - uses: actions/github-script@v6
         env:
           PLAN: "terraform\n${{ steps.plan.outputs.stdout }}"
@@ -55,8 +55,9 @@ jobs:
               repo: context.repo.repo,
               body: output
             })
+      # Tells plan results, because plan can not fail itself
       - name: Terraform Plan Status
         run: exit 1
-
+      # Applies the Terraform Configuration
       - name: Terraform Apply
         run: terraform apply -auto-approve -input=false
